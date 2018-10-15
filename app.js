@@ -1,4 +1,4 @@
-//  Name: Thomas J Lee
+// Name: Thomas J Lee
 // Project: To-do-list
 
 // * Require npm packages
