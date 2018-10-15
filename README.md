@@ -8,5 +8,5 @@ Features:
 2. Date and time tag for list creation.
 
 Future features:
-1. Automatic saving of notes (saves every keystrokes).
-2. Search Bar in notes.
+1. Automatic saving of lists (saves every keystroke).
+2. Search Bar for lists.

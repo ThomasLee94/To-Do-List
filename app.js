@@ -3,13 +3,19 @@
 
 // * Require npm packages
 var express = require("express")
-var handlebars = require("handlebars")
+var handlebars = require("express-handlebars")
 var mongoose = require("mongoose")
+
+// * Run app.js with express
+var app =  express()
+
+// * Importing models
+var List = require("./models/list")
 
 // * Routes
 // Index
 app.get("/", (req, res) => {
-    Lists.find()
+    List.find()
         .then((list) => {
             res.render("lists-index", {lists: lists})
         }).catch(err => {
@@ -29,7 +35,7 @@ app.post("/lists", (req, res) => {
 
 // Read
 app.get("/lists/:id", (req, res) => {
-    Lists.findById(req.params.id)
+    List.findById(req.params.id)
         .then((list) => {
             res.render("list-show", {note: note})
         }).catch((err) => {
@@ -39,7 +45,7 @@ app.get("/lists/:id", (req, res) => {
 
 // Update
 app.put("/lists/:id", (req, res) => {
-    Lists.findByIdAndUpdate(req.params.id, req.body)
+    List.findByIdAndUpdate(req.params.id, req.body)
         .then((list) => {
             res.redirect(`/lists/${list._id}`)
         }).catch((err) => {
@@ -49,10 +55,14 @@ app.put("/lists/:id", (req, res) => {
 
 // Delete
 app.delete("/lists/:id", (req, res) => {
-    Lists.findByIdAndRemove(req.params.id)
+    List.findByIdAndRemove(req.params.id)
         .then((list) => {
             res.redirect("/lists")
         }).catch((err) => {
             console.log(err)
         })
+})
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log("App is listening to port 3000!")
 })
