@@ -1,13 +1,25 @@
 // Name: Thomas J Lee
-// Project: To-do-list
+// Project: To-Do-List
 
 // * Require npm packages
-var express = require("express")
-var handlebars = require("express-handlebars")
-var mongoose = require("mongoose")
+var express = require("express");
+var handlebars = require("express-handlebars");
+var bodyParser = require("body-parser")
+var mongoose = require("mongoose");
+// ! Above npm packages installed.
 
 // * Run app.js with express
 var app =  express()
+
+// * Use body-parser
+app.use(bodyParser.urlencoded({extended: true}))
+
+// * Use handlebars for client-side rendering
+app.engine("handlebars", handlebars({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
+// * Connecting to mongoose
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/To-Do-List")
 
 // * Importing models
 var List = require("./models/list")
@@ -37,7 +49,7 @@ app.post("/lists", (req, res) => {
 app.get("/lists/:id", (req, res) => {
     List.findById(req.params.id)
         .then((list) => {
-            res.render("list-show", {note: note})
+            res.render("list-show", {list: list})
         }).catch((err) => {
             console.log(err)
         })
