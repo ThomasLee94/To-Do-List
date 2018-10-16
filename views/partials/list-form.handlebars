@@ -1,7 +1,32 @@
 {{!-- New To-Do-List form --}}
 
-<fieldset>
-    <div>
-        
-    </div>
-</fieldset>
+<form action="/lists/list" method="POST">
+    <input type="hidden" value="{{list._id}}" name="listId">
+    <fieldset>
+        <legend>New list</legend>
+        {{!-- Title --}}
+        <div class="form-group">
+            <label for="list-title">Title</label>
+            <input class"form-control"
+            id="list-title"
+            type="text"
+            name="title"
+            placeholder="Title"/>
+         </div>
+
+         {{!-- Body --}}
+        <div class="form-group">
+            <label for="comment-content">Body</label><br>
+            <textarea class="form-control"
+                id="list-body"
+                name="body"
+                rows="10"
+                placeholder="Your list..."/></textarea>
+        </div>
+        {{!-- Save list button --}}
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Save list</button>
+        </div>
+
+    </fieldset>
+</form>
