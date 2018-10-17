@@ -14,7 +14,7 @@ Future features:
 
 User Stories:
 
-(Pending XD)
+(Pending)
 
 Wireframes:
 

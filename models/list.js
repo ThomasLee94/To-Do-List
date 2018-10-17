@@ -6,7 +6,7 @@ var mongoose = require("mongoose")
 var ListSchema = new mongoose.Schema({
     title: String,
     body: String,
-    listId: {type: String, required: True}
+    listId: {type: String, required: true}
 })  
 
 var List = mongoose.model("List", ListSchema)

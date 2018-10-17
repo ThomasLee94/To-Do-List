@@ -1,0 +1,15 @@
+<h1>Lists</h1>
+<div>
+    {{#unless lists}}
+        <h1>No lists, add something!</h1>
+    {{/unless}}
+</div>
+
+{{#each lists}}
+    <div>
+        {{this.title}}
+        <ul>
+            {{this.body}}
+        </ul>
+    </div>
+{{/each}}
