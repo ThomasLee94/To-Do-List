@@ -6,6 +6,7 @@ var mongoose = require("mongoose")
 var ListSchema = new mongoose.Schema({
     title: String,
     body: String,
+    date: Number,
     listId: {type: String, required: false}
 })  
 

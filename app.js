@@ -69,10 +69,10 @@ app.put("/list/:id", (req, res) => {
 })
 
 // Delete
-app.delete("/list/:id", (req, res) => {
-    List.findByIdAndRemove(req.params.id)
+app.delete("/list", (req, res) => {
+    List.findByIdAndRemove(req.query._id)
         .then((list) => {
-            res.redirect("/list")
+            res.send()
         }).catch((err) => {
             console.log(err)
         })

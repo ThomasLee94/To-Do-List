@@ -1,7 +1,7 @@
-// var listAdder = document.getElementById('list-item-adder')
-// var todoList = document.getElementById('todo-list')
+function deleteList(element){  
+    const id = element.getAttribute('list-id')
+    axios.delete('/list/?_id=' + String(id)).then((res) => {
+        element.parentElement.remove()
+    })
+}
 
-// console.log('loaded')
-// listAdder.onkeypress = (event) => {
-//     console.log(event)
-// }

@@ -15,16 +15,14 @@
     var resetButton = document.getElementById("reset-button");
     var submitButton = document.getElementById("submit-button");
 
-    
-
     submitButton.addEventListener('click', function (event) {
       event.preventDefault();
       console.log('prove it works');
-      // submit form via ajax --- maybe fetch?
 
       var list = {
       title: document.getElementById("list-title").value,
       body: document.getElementById("list-body").value,
+      date: Date.now(),
       listId: document.getElementById("listId").value
       
     }
