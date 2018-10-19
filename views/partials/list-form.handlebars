@@ -1,13 +1,14 @@
 {{!-- New To-Do-List form --}}
 
-<form action="/lists/list" method="POST">
-    <input type="hidden" value="{{list._id}}" name="listId">
+<form action="/lists" method="POST" id="list">
+    
     <fieldset>
+        <input type="hidden" value="{{list._id}}" name="listId" id="listId">
         <legend>New list</legend>
         {{!-- Title --}}
         <div class="form-group">
             <label for="list-title">Title</label>
-            <input class"form-control"
+            <input class="form-control"
             id="list-title"
             type="text"
             name="title"
@@ -25,7 +26,7 @@
         </div>
         {{!-- Save list button --}}
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Save list</button>
+            <button class="btn btn-primary" type="submit"  id="submit-button">Save list</button>
         </div>
 
     </fieldset>

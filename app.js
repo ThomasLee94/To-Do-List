@@ -13,6 +13,8 @@ var app =  express()
 
 // * Use body-parser
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.json())
+app.use('/public', express.static('public'))
 
 // * Use handlebars for client-side rendering
 app.engine("handlebars", handlebars({defaultLayout: "main"}));
@@ -28,7 +30,7 @@ var List = require("./models/list")
 // Index
 app.get("/", (req, res) => {
     List.find()
-        .then((list) => {
+        .then((lists) => {
             res.render("lists-index", {lists: lists})
         }).catch(err => {
             console.log(err)
@@ -36,17 +38,18 @@ app.get("/", (req, res) => {
 })
 
 // Create
-app.post("/lists", (req, res) => {
-    Lists.create(req.body)
+app.post("/list", (req, res) => {
+    console.log(req.body)
+    List.create(req.body)
         .then((list) => {
-            res.redirect(`/lists/${lists._id}`)
+            res.status(200).send(list)
         }).catch((err) => {
             console.log(err)
         })
 })
 
 // Read
-app.get("/lists/:id", (req, res) => {
+app.get("/list/:id", (req, res) => {
     List.findById(req.params.id)
         .then((list) => {
             res.render("list-show", {list: list})
@@ -56,20 +59,20 @@ app.get("/lists/:id", (req, res) => {
 })
 
 // Update
-app.put("/lists/:id", (req, res) => {
+app.put("/list/:id", (req, res) => {
     List.findByIdAndUpdate(req.params.id, req.body)
         .then((list) => {
-            res.redirect(`/lists/${list._id}`)
+            res.redirect(`/list/${list._id}`)
         }).catch((err) => {
             console.log(err)
         })
 })
 
 // Delete
-app.delete("/lists/:id", (req, res) => {
+app.delete("/list/:id", (req, res) => {
     List.findByIdAndRemove(req.params.id)
         .then((list) => {
-            res.redirect("/lists")
+            res.redirect("/list")
         }).catch((err) => {
             console.log(err)
         })
