@@ -27,7 +27,7 @@ Wireframe:
 
 https://xd.adobe.com/view/c937d73d-3889-4fca-4adf-8758195baf59-bf06/?fullscreen
 
-Live (broken):
+Live:
 
 https://to-do-list-tl.herokuapp.com/
 
