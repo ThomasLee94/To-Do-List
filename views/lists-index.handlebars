@@ -1,13 +1,10 @@
 
-
-<div class="container-fluid">
+<div class="container no-todos" id="container">
       {{!-- List preview bar --}}
-      <div class="row">
-        <div class="col-lg-4" style="background:#ADA996;">
+      <div class="left-side">
             {{> new-list-button}}
 
-            {{#if lists}}
-                <ul class="flex-column" id="todo-list">
+                <ul id="todo-list">
                 {{#each lists}}
                     <div class="card">
                         <div class="card-body">
@@ -18,17 +15,55 @@
                         </div>
                     </div>
                 {{/each}}
-                </ul>
-                
-            {{else}}
-    
-                <h1>No lists, add something!</h1>
-            {{/if}}
+                </ul>     
+        </div>
+
+        <div class="middle">
+            <h1>No lists, add something!</h1>
         </div>
 
         {{!-- List write bar --}}
-        <div class="col-lg-8" style="background: #DBDBDB;">
+        <div class="right-side" id="right-side">
           {{> list-form}}
         </div>
-      </div>
-    </div>
+    
+</div>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+
+    .left-side, .right-side, .middle-side {
+        padding: 4em;
+
+    }
+
+    .left-side {
+        background-color:#ADA996;
+        color: #ddd;
+        flex: 1;
+    }
+
+    .right-side {
+        background-color:#DBDBDB;
+        color: #333;
+        flex: 2;
+    }
+
+    .middle-side {
+        display: none;
+    }
+
+    .no-todos .middle-side {
+        display: block;
+    }
+
+    .no-todos .right-side {
+        display: none;
+    }
+</style>

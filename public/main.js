@@ -4,4 +4,21 @@ function deleteList(element){
         element.parentElement.remove()
     })
 }
+function showForm(){
+    const form = document.querySelector('.right-side')
+    form.style.display = 'block';
+
+    const hide = document.querySelector('.middle')
+    hide.style.display = 'none'
+
+    // const addButton = document.getElementById('add-button');
+    // const container = document.getElementById('container');
+
+    // addButton.onclick = (e) => {
+    //     container.classList.toggle('no-todos');
+    //     // classList.add(), .remove(), .contains()
+    // }
+}
+
+
 
