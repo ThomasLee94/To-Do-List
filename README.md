@@ -2,7 +2,7 @@
 
 Description:
 
-1. Creating a basic to-do-list web app that CRUD's. 
+Creating a basic to-do-list web app that CRUD's. 
 
 Motivation:
 
@@ -12,6 +12,7 @@ The to-do-list tab is nothing different to what is already out there, I have sim
 
 
 Design:
+
 Bootstrap with some CSS. Although mostly in bootstrap, I have tried to make the main page responsive with flex-box. 
 
 
