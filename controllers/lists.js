@@ -26,15 +26,20 @@ module.exports = (app) => {
             })
     })
 
-    // Read
-    app.get("/list/:id", (req, res) => {
-        List.findById(req.params.id)
-            .then((list) => {
-                res.render("list-show", {list: list})
-            }).catch((err) => {
-                console.log(err)
-            })
+    app.get("/list/new", (req, res) => {
+        console.log("List New!!!!!")
+        res.render("new-list")
     })
+
+    // Read
+    // app.get("/list/:id", (req, res) => {
+    //     List.findById(req.params.id)
+    //         .then((list) => {
+    //             res.render("list-show", {list: list})
+    //         }).catch((err) => {
+    //             console.log(err)
+    //         })
+    // })
 
     // Update
     app.put("/list/:id", (req, res) => {
