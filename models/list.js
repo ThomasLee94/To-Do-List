@@ -1,14 +1,15 @@
-// * Model for a to-do-list (list)
-
-// Initialise Mongoose
-var mongoose = require("mongoose")
+// * Initialise Mongoose
+// * A wrapper around our MongoDB database 
+let mongoose = require("mongoose");
 
 var ListSchema = new mongoose.Schema({
     title: String,
-    body: String,
-    date: Number
-})  
+    body: String
+}, {
+    timestamps: true
+})
 
-var List = mongoose.model("List", ListSchema)
+let List = mongoose.model('List', ListSchema)
 
 module.exports = List;
+

@@ -1,10 +1,8 @@
 {{!-- New To-Do-List form --}}
 
 <form action="/lists" method="POST" id="list">
-    
     <fieldset>
         <input type="hidden" value="{{list._id}}" name="listId" id="listId">
-        <legend>New list</legend>
         {{!-- Title --}}
         <div class="form-group">
             <label for="list-title">Title</label>
@@ -21,13 +19,13 @@
             <textarea class="form-control"
                 id="list-body"
                 name="body"
-                rows="10"
-                placeholder="Your list... (For some reason saved lists can only be seen once 
-                refreshed"/></textarea>
+                rows="4"
+                placeholder="Your list..." /></textarea>
         </div>
+
         {{!-- Save list button --}}
         <div class="form-group">
-            <button class="btn btn-light" type="submit"  id="submit-button" >Save list</button>
+            <button class="btn btn-light" type="submit" id="submit-button">Save list</button>
         </div>
 
     </fieldset>

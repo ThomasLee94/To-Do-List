@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.left-side, .right-side, .middle-side {
+    padding: 4em;
+
+}
+
+.left-side {
+    background-color:#ADA996;
+    color: #ddd;
+    flex: 1;
+}
+
+.right-side {
+    background-color:#DBDBDB;
+    color: #333;
+    flex: 2;
+}
+
+.middle-side {
+    display: none;
+}
+
+.no-todos .middle-side {
+    display: block;
+}
+
+.no-todos .right-side {
+    display: none;

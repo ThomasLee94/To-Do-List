@@ -1,69 +1,25 @@
 
-<div class="container no-todos" id="container">
-      {{!-- List preview bar --}}
-      <div class="left-side">
-            {{> new-list-button}}
-
-                <ul id="todo-list">
-                {{#each lists}}
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{this.title}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{this.date}}</h6>
-                            <p class="card-text">{{this.body}}</p>
-                            <a href="#" class="btn btn-danger" onclick="deleteList(this)" list-id='{{ this._id }}'>Delete</a>
-                        </div>
-                    </div>
-                {{/each}}
-                </ul>     
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+            {{> list-form}}
+            {{!-- Show saved lists --}}
+            <div class='list-group' id='lists'>
+            {{#each lists}}
+                <a href="/lists/{{this._id}}" class="list-group-item list-group-item-action">
+                    <h6 class="mb-2 text-muted">{{this.date}}</h6>
+                    <h5 class="">{{this.title}}</h5>
+                    <p class="">{{this.body}}</p>
+                    {{!-- <a href="#" class="btn btn-danger" onclick="deleteList(this)" list-id='{{ this._id }}'>Delete</a>
+                    <a href="/lists/{{this._id}}/edit" class="btn btn-light" >Edit</a> --}}
+            
+                </a>
+            {{/each}}
+            </div>   
         </div>
-
-        <div class="middle">
-            <h1>No lists, add something!</h1>
-        </div>
-
-        {{!-- List write bar --}}
-        <div class="right-side" id="right-side">
-          {{> list-form}}
-        </div>
-    
+    </div>
 </div>
 
-<style>
-    .container {
-        display: flex;
-        flex-direction: row;
-        padding: 0;
-        margin: 0;
-        height: 100%;
-    }
 
-    .left-side, .right-side, .middle-side {
-        padding: 4em;
 
-    }
 
-    .left-side {
-        background-color:#ADA996;
-        color: #ddd;
-        flex: 1;
-    }
-
-    .right-side {
-        background-color:#DBDBDB;
-        color: #333;
-        flex: 2;
-    }
-
-    .middle-side {
-        display: none;
-    }
-
-    .no-todos .middle-side {
-        display: block;
-    }
-
-    .no-todos .right-side {
-        display: none;
-    }
-</style>

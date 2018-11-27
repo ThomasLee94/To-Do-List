@@ -1,27 +1,21 @@
 {
-  "name": "to-do-list-master",
+  "name": "to-do-list-rework",
   "version": "1.0.0",
-  "description": "Description:",
+  "description": "",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ThomasLee94/To-Do-List.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ThomasLee94/To-Do-List/issues"
-  },
-  "homepage": "https://github.com/ThomasLee94/To-Do-List#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4"
-  }
+    "mongoose": "^5.3.13",
+    "nodemon": "^1.18.6"
+  },
+  "devDependencies": {
+    "handlebars-helper-moment": "^0.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
