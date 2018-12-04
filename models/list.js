@@ -2,7 +2,7 @@
 // * A wrapper around our MongoDB database 
 let mongoose = require("mongoose");
 
-var ListSchema = new mongoose.Schema({
+let ListSchema = new mongoose.Schema({
     title: String,
     body: String
 }, {

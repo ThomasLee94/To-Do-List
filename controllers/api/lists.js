@@ -1,20 +1,23 @@
 // * Importing models
-let List = require("../models/list")
+let List = require("../../models/list")
 
 module.exports = (app) => {
     // * Routes
     // Index
-    app.get("/", (req, res) => {
+    app.get("/api/lists", (req, res) => {
         List.find()
             .then((lists) => {
-                res.render("lists-index", {lists: lists})
+                 
+                    //=> RETURN JSON
+                    return res.send({ lists: lists }); 
+
             }).catch(err => {
                 console.log(err)
             })
     })
 
     // Create
-    app.post("/lists", (req, res) => {
+    app.post("/api/lists", (req, res) => {
         console.log("hi")
         List.create(req.body)
             .then((list) => {
@@ -48,8 +51,9 @@ module.exports = (app) => {
 
     // Delete
     app.delete("/list/:id", (req, res) => {
-        List.findByIdAndRemove(req.params.id)
+        List.findByIdAndRemove(req.query._id)
             .then((list) => {
+                res.send()
                 res.redirect("/");
             }).catch((err) => {
                 console.log(err)

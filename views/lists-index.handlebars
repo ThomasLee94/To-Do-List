@@ -2,19 +2,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-
-            {{> new-list-button}}
-
+            {{> list-form}}
             {{!-- Show saved lists --}}
             <div class='list-group' id='lists'>
             {{#each lists}}
-                <a href="/lists/{{this._id}}" class="list-group-item list-group-item-action">
+                <a href="/list/{{this._id}}" class="list-group-item list-group-item-action">
                     <h6 class="mb-2 text-muted">{{this.date}}</h6>
                     <h5 class="">{{this.title}}</h5>
                     <p class="">{{this.body}}</p>
-                    {{!-- <a href="#" class="btn btn-danger" onclick="deleteList(this)" list-id='{{ this._id }}'>Delete</a>
-                    <a href="/lists/{{this._id}}/edit" class="btn btn-light" >Edit</a> --}}
-            
                 </a>
             {{/each}}
             </div>   

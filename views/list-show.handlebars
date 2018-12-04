@@ -1,0 +1,14 @@
+
+<div>
+    {{list.date}}
+    {{list.title}}
+    {{list.body}}
+</div>
+
+
+<form method="POST" action="/list/{{list._id}}?_method=DELETE">
+    <button class="btn btn-danger" type="submit" onclick="deleteList(this)" list-id='{{ this._id }}'>Delete List</button>
+</form>
+
+<a href="#" class="btn btn-danger" onclick="deleteList(this)" list-id='{{ this._id }}'>Delete</a>
+<a href="/lists/{{this._id}}/edit" class="btn btn-light" >Edit</a>

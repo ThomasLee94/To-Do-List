@@ -28,7 +28,7 @@ submitButton.addEventListener('click', function (event) {
             </div>
         </div>
         `
-        var e = document.createElement('div');
+        let e = document.createElement('div');
         e.innerHTML = list;
         document.getElementById('lists').append(e)
         console.log(response)
