@@ -1,3 +1,0 @@
-1 - Make individual to-do for each list.
-2 - CRUD to-do.
-3 - Add completed checkbox for each to-do. 
