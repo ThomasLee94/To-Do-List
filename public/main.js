@@ -1,6 +1,8 @@
 // Save List
 let resetButton = document.getElementById("reset-button");
 let submitButton = document.getElementById("submit-button");
+let checkButton = document.querySelectorAll("input[type=checkbox]");
+let inputLabel = document.querySelectorAll(".list")
 
 submitButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -32,4 +34,43 @@ function deleteList(element){
         console.log(e)
     })
 }
+
+checkButton.forEach(el => el.addEventListener("click", function(event) {
+     // Update
+     axios.put(`/toggled_check/${this.getAttribute("mongoid")}/${this.getAttribute("ix")}`, (req, res) => {
+        List.findByIdAndUpdate(req.params, req.body)
+            .then((list) => {
+                window.location.reload();
+            }).catch((err) => {
+                console.log(err)
+            })
+    })
+}))
+
+
+function updateInput(event) {
+    // Update
+    axios({
+        method: "PUT",
+        url: `/list/${this.getAttribute("mongoid")}/${this.getAttribute("ix")}`,
+        data: {newValue: this.value}
+    },(req, res) => {
+        List.findByIdAndUpdate(req.params, req.body)
+            .then((list) => {
+                window.location.reload();
+            }).catch((err) => {
+                console.log(err)
+            })
+    })
+
+}
+
+inputLabel.forEach(el => el.addEventListener("change", updateInput))
+inputLabel.forEach(el => el.addEventListener("keyUp", function(event){
+    if (event.keyCode == 13){
+        updateInput.call(this)
+    }
+}))
+
+
 

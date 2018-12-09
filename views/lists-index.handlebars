@@ -10,14 +10,18 @@
                         <h5 class="">{{this.title}}</h5>
                         <p class="mb-2 text-muted">List created at: {{this.created_at}}</p>
                         <div onClick="event.stopPropagation()">
-                            {{#each this.body}}
+                            {{#each this.body as |value key|}}
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" aria-label="Checkbox for following text input">
+                                            {{#if value.checked}}
+                                            <input checked type="checkbox" aria-label="Checkbox for following text input" mongoid="{{../_id}}" ix="{{key}}">
+                                            {{else}}
+                                            <input type="checkbox" aria-label="Checkbox for following text input" mongoid="{{../_id}}" ix="{{key}}">
+                                            {{/if}}
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Text input with checkbox" value="{{{this.label}}}">
+                                    <input type="text" class="form-control list" aria-label="Text input with checkbox" value="{{{value.label}}}" mongoid="{{../_id}}" ix="{{key}}">
                                 </div>
                             {{/each}}
                         </div>
