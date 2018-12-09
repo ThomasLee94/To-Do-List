@@ -5,13 +5,24 @@
             {{> list-form}}
             {{!-- Show saved lists --}}
             <div class='list-group' id='lists'>
-            {{#each lists}}
-                <a href="/list/{{this._id}}" class="list-group-item list-group-item-action">
-                    <h6 class="mb-2 text-muted">{{this.date}}</h6>
-                    <h5 class="">{{this.title}}</h5>
-                    <p class="">{{this.body}}</p>
-                </a>
-            {{/each}}
+                {{#each lists}}
+                    <div onClick="window.location='/list/{{this._id}}'" class="list-group-item list-group-item-action">
+                        <h5 class="">{{this.title}}</h5>
+                        <p class="mb-2 text-muted">List created at: {{this.created_at}}</p>
+                        <div onClick="event.stopPropagation()">
+                            {{#each this.body}}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" aria-label="Checkbox for following text input">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox" value="{{{this.label}}}">
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                {{/each}}
             </div>   
         </div>
     </div>

@@ -5,22 +5,22 @@
         <input type="hidden" value="{{list._id}}" name="listId" id="listId">
         {{!-- Title --}}
         <div class="form-group">
-            <label for="list-title">Title</label>
+            <label for="list-title">Task</label>
             <input class="form-control"
             id="list-title"
             type="text"
             name="title"
-            placeholder="Title"/>
+            placeholder="Task"/>
          </div>
         
         {{!-- Body --}}
         <div class="form-group">
-            <label for="comment-content">Body</label><br>
+            <label for="comment-content">To-do</label><br>
             <textarea class="form-control"
                 id="list-body"
                 name="body"
                 rows="4"
-                placeholder="Your list..." /></textarea>
+                placeholder="Add a - for a new list!" /></textarea>
         </div>
 
         {{!-- Save list button --}}

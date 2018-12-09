@@ -15,10 +15,23 @@ module.exports = (app) => {
 
     // Create
     app.post("/lists", (req, res) => {
-        console.log("hi")
-        List.create(req.body)
+        // Regex on saved body/list.
+        let items = req.body.body.match(/-\s?.+/g);
+        console.log(items);
+        let mappedItems = items.map((item) => {
+            return {
+                checked: false,
+                // replaces the -
+                label: item.replace(/-\s?/g, "")
+            }
+        });
+        console.log(mappedItems);
+        let doc = {
+            title: req.body.title,
+            body: mappedItems
+        }
+        List.create(doc)
             .then((list) => {
-                console.log("HELLO")
                 res.send(list)
                 res.redirect('/');
             }).catch((err) => {

@@ -4,9 +4,12 @@ let mongoose = require("mongoose");
 
 let ListSchema = new mongoose.Schema({
     title: String,
-    body: String
+    body: [{checked: Boolean, label: String}]
 }, {
-    timestamps: true
+    timestamps: {
+        createdAt: 'created_at',
+        updateAt: 'update_at'
+    }
 })
 
 let List = mongoose.model('List', ListSchema)
