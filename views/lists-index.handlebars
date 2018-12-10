@@ -28,6 +28,10 @@
                                 </div>
                             {{/each}}
                         </div>
+                        <form method="POST" action="/list/{{this._id}}?_method=DELETE">
+                            <button class="btn btn-danger" type="submit" onclick="deleteList(this)" list-id='{{ this._id }}'>Delete List</button>
+                        </form>
+
                     </div>
                 {{/each}}
             </div>   
