@@ -1,6 +1,7 @@
-# Ignoring node modules
-*/node_modules/*
-node_modules/*
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
 
 # Ignoring specific files
 to-do.txt
