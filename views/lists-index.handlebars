@@ -6,7 +6,7 @@
             {{!-- Show saved lists --}}
             <div class='list-group' id='lists'>
                 {{#each lists}}
-                    <div onClick="window.location='/list/{{this._id}}'" class="list-group-item list-group-item-action">
+                    <div class="list-group-item list-group-item-action">
                         <h5 class="">{{this.title}}</h5>
                         <p class="mb-2 text-muted">List created at: {{this.created_at}}</p>
                         {{#if this.updated_at}}
