@@ -9,6 +9,9 @@
                     <div onClick="window.location='/list/{{this._id}}'" class="list-group-item list-group-item-action">
                         <h5 class="">{{this.title}}</h5>
                         <p class="mb-2 text-muted">List created at: {{this.created_at}}</p>
+                        {{#if this.updated_at}}
+                            <p class="mb-2 text-muted">List updated at: {{this.updated_at}}</p>
+                        {{/if}}
                         <div onClick="event.stopPropagation()">
                             {{#each this.body as |value key|}}
                                 <div class="input-group mb-3">

@@ -58,6 +58,7 @@ function updateInput(event) {
         List.findByIdAndUpdate(req.params, req.body)
             .then((list) => {
                 window.location.reload();
+                alert("list updated!");
             }).catch((err) => {
                 console.log(err)
             })

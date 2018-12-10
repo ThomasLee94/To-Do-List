@@ -8,7 +8,7 @@ let ListSchema = new mongoose.Schema({
 }, {
     timestamps: {
         createdAt: 'created_at',
-        updateAt: 'update_at'
+        updatedAt: 'updated_at'
     }
 })
 
