@@ -26,13 +26,16 @@ A more detailed write-up is in progress.
 ## How to Use Live:
 1. A dash(-) must be used in order to properly differentiate all to do's from the main text input into seperate text boxes. 
 
-## Features (In progress):
-1. Basic login page to differentiate users.
-2. Date and time tag for list creation.
+## Features:
+1. Users can get individual checkboxes from one input text box using redux.
+2. The checkboxes can be individually updated. 
+3. Tick boxes checks(✓) are saved with Mongo.
+2. Date and time tag for list creation and updated if list is overwritten. 
 
 ## Backlog:
-1. Automatic saving of lists (saves every keystroke).
-2. Search bar for lists on-top of list-view tab.
+1. Authentication.
+2. Automatic saving of lists (saves every keystroke).
+3. Search bar for lists on-top of list-view tab.
 
 ## Wireframe:
 
